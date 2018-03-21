@@ -28464,20 +28464,24 @@ var HomeMain = function (_React$Component2) {
             };
             return _react2.default.createElement(
                 "div",
-                { style: divStyle },
+                { className: "frontTitle", style: divStyle },
                 _react2.default.createElement(
                     "div",
-                    { style: divStyleOverlay },
+                    { className: "frontContainer", style: divStyleOverlay },
                     _react2.default.createElement(
-                        "h1",
-                        { style: titleStyle },
-                        "Book Trading Club"
-                    ),
-                    _react2.default.createElement("hr", { style: hrStyle }),
-                    _react2.default.createElement(
-                        "p",
-                        { style: subtitleStyle },
-                        "Trade your used books with other readers"
+                        "div",
+                        { className: "titleContainer" },
+                        _react2.default.createElement(
+                            "h1",
+                            { style: titleStyle },
+                            "Book Trading Club"
+                        ),
+                        _react2.default.createElement("hr", { style: hrStyle }),
+                        _react2.default.createElement(
+                            "p",
+                            { style: subtitleStyle },
+                            "Trade your used books with other readers"
+                        )
                     )
                 )
             );
@@ -28522,49 +28526,49 @@ var HomeInfo = function (_React$Component3) {
             };
             return _react2.default.createElement(
                 "div",
-                { style: { textAlign: 'center', minHeight: 300 } },
+                { className: "infoSection" },
                 _react2.default.createElement(
                     "div",
-                    { style: infoBoxStyle },
+                    { className: "infoBox", style: infoBoxStyle },
                     _react2.default.createElement(
                         "h1",
-                        { style: hStyle },
+                        { className: "infoHeader", style: hStyle },
                         "Browse Catalogue"
                     ),
                     _react2.default.createElement("hr", { style: hrStyle }),
                     _react2.default.createElement(
                         "p",
-                        { style: pStyle },
+                        { className: "infoText", style: pStyle },
                         "Look through the catalogue to see which books our users own and see which ones you would be interested in reading."
                     )
                 ),
                 _react2.default.createElement(
                     "div",
-                    { style: infoBoxStyle },
+                    { className: "infoBox", style: infoBoxStyle },
                     _react2.default.createElement(
                         "h1",
-                        { style: hStyle },
+                        { className: "infoHeader", style: hStyle },
                         "Exchange Books"
                     ),
                     _react2.default.createElement("hr", { style: hrStyle }),
                     _react2.default.createElement(
                         "p",
-                        { style: pStyle },
+                        { className: "infoText", style: pStyle },
                         "Post books that you own that you would be interested in exchanging with other reader's books."
                     )
                 ),
                 _react2.default.createElement(
                     "div",
-                    { style: infoBoxStyle },
+                    { className: "infoBox", style: infoBoxStyle },
                     _react2.default.createElement(
                         "h1",
-                        { style: hStyle },
+                        { className: "infoHeader", style: hStyle },
                         "Personal Homepage"
                     ),
                     _react2.default.createElement("hr", { style: hrStyle }),
                     _react2.default.createElement(
                         "p",
-                        { style: pStyle },
+                        { className: "infoText", style: pStyle },
                         "Maintain your public profile, manage your trades, and update your personal catalogue."
                     )
                 )

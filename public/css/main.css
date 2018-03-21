@@ -202,3 +202,30 @@ span {
 	display: inline;
 	margin: 0;
 }
+
+.frontTitle{
+	height: 40vh;
+}
+.frontContainer{
+	height: 40vh;
+}
+.titleContainer{
+	position: relative;
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.infoSection{
+	text-align:center;
+	min-height: calc(60vh-300px);
+}
+.infoHeader{
+	
+}
+.infoText{
+	
+}
+.infoBox{
+	padding-bottom:75px;
+}

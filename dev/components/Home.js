@@ -62,11 +62,13 @@ class HomeMain extends React.Component{
 					fontFamily: 'Lucida Console'
 					};
             return (
-               <div style={divStyle}>
-               <div style={divStyleOverlay}>
+               <div className='frontTitle' style={divStyle}>
+               <div className='frontContainer' style={divStyleOverlay}>
+               <div className='titleContainer'>
                     <h1 style={titleStyle}>Book Trading Club</h1>
                     <hr style={hrStyle}/>
                     <p style={subtitleStyle}>Trade your used books with other readers</p>
+                </div>
                 </div>
                </div>
           ); 
@@ -104,21 +106,21 @@ class HomeInfo extends React.Component{
                 float: 'left'
             };
             return (
-               <div style={{textAlign:'center', minHeight:300}}>
-                    <div style={infoBoxStyle}>
-                        <h1 style={hStyle}>Browse Catalogue</h1>
+               <div className='infoSection'>
+                    <div className='infoBox' style={infoBoxStyle}>
+                        <h1 className='infoHeader' style={hStyle}>Browse Catalogue</h1>
                         <hr style={hrStyle}/>
-                        <p style={pStyle}>Look through the catalogue to see which books our users own and see which ones you would be interested in reading.</p>
+                        <p className='infoText' style={pStyle}>Look through the catalogue to see which books our users own and see which ones you would be interested in reading.</p>
                     </div>
-                    <div style={infoBoxStyle}>
-                        <h1 style={hStyle}>Exchange Books</h1>
+                    <div className='infoBox' style={infoBoxStyle}>
+                        <h1 className='infoHeader' style={hStyle}>Exchange Books</h1>
                         <hr style={hrStyle}/>
-                        <p style={pStyle}>Post books that you own that you would be interested in exchanging with other reader's books.</p>
+                        <p className='infoText' style={pStyle}>Post books that you own that you would be interested in exchanging with other reader's books.</p>
                     </div>
-                    <div style={infoBoxStyle}>
-                        <h1 style={hStyle}>Personal Homepage</h1>
+                    <div className='infoBox' style={infoBoxStyle}>
+                        <h1 className='infoHeader' style={hStyle}>Personal Homepage</h1>
                         <hr style={hrStyle}/>
-                        <p style={pStyle}>Maintain your public profile, manage your trades, and update your personal catalogue.</p>
+                        <p className='infoText' style={pStyle}>Maintain your public profile, manage your trades, and update your personal catalogue.</p>
                     </div>
                </div>
           ); 
