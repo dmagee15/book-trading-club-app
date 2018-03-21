@@ -28504,13 +28504,6 @@ var HomeInfo = function (_React$Component3) {
         key: "render",
         value: function render() {
 
-            var infoBoxStyle = {
-                width: 300,
-                display: 'inline-block',
-                margin: '50px 50px 0px 50px',
-                verticalAlign: 'top',
-                textAlign: 'left'
-            };
             var pStyle = {
                 fontFamily: 'Arial',
                 color: '#797979'
@@ -28529,7 +28522,7 @@ var HomeInfo = function (_React$Component3) {
                 { className: "infoSection" },
                 _react2.default.createElement(
                     "div",
-                    { className: "infoBox", style: infoBoxStyle },
+                    { className: "infoBox" },
                     _react2.default.createElement(
                         "h1",
                         { className: "infoHeader", style: hStyle },
@@ -28544,7 +28537,7 @@ var HomeInfo = function (_React$Component3) {
                 ),
                 _react2.default.createElement(
                     "div",
-                    { className: "infoBox", style: infoBoxStyle },
+                    { className: "infoBox" },
                     _react2.default.createElement(
                         "h1",
                         { className: "infoHeader", style: hStyle },
@@ -28559,7 +28552,7 @@ var HomeInfo = function (_React$Component3) {
                 ),
                 _react2.default.createElement(
                     "div",
-                    { className: "infoBox", style: infoBoxStyle },
+                    { className: "infoBox" },
                     _react2.default.createElement(
                         "h1",
                         { className: "infoHeader", style: hStyle },

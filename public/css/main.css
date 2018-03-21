@@ -218,7 +218,8 @@ span {
 }
 .infoSection{
 	text-align:center;
-	min-height: calc(60vh-300px);
+	height: calc(60%-200px);
+	min-height: 270px;
 }
 .infoHeader{
 	
@@ -228,4 +229,9 @@ span {
 }
 .infoBox{
 	padding-bottom:75px;
+	width:300px;
+                display:inline-block;
+                margin: 50px 50px 0px 50px;
+                verticalAlign: top;
+                textAlign: left;
 }

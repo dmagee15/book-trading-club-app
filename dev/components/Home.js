@@ -85,13 +85,6 @@ class HomeInfo extends React.Component{
     
    render(){
             
-            var infoBoxStyle = {
-                width:300,
-                display:'inline-block',
-                margin: '50px 50px 0px 50px',
-                verticalAlign: 'top',
-                textAlign: 'left'
-            };
             var pStyle = {
                 fontFamily: 'Arial',
                 color: '#797979'
@@ -107,17 +100,17 @@ class HomeInfo extends React.Component{
             };
             return (
                <div className='infoSection'>
-                    <div className='infoBox' style={infoBoxStyle}>
+                    <div className='infoBox'>
                         <h1 className='infoHeader' style={hStyle}>Browse Catalogue</h1>
                         <hr style={hrStyle}/>
                         <p className='infoText' style={pStyle}>Look through the catalogue to see which books our users own and see which ones you would be interested in reading.</p>
                     </div>
-                    <div className='infoBox' style={infoBoxStyle}>
+                    <div className='infoBox'>
                         <h1 className='infoHeader' style={hStyle}>Exchange Books</h1>
                         <hr style={hrStyle}/>
                         <p className='infoText' style={pStyle}>Post books that you own that you would be interested in exchanging with other reader's books.</p>
                     </div>
-                    <div className='infoBox' style={infoBoxStyle}>
+                    <div className='infoBox'>
                         <h1 className='infoHeader' style={hStyle}>Personal Homepage</h1>
                         <hr style={hrStyle}/>
                         <p className='infoText' style={pStyle}>Maintain your public profile, manage your trades, and update your personal catalogue.</p>
