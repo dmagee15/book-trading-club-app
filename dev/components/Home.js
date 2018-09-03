@@ -113,12 +113,12 @@ class HomeContent extends React.Component{
                 <div className='infoBox'>
                     <h1 className='infoHeader' style={hStyle}>Exchange Books</h1>
                     <hr/>
-                    <p className='infoText'>Post books that you own that you would be interested in exchanging with the books of other readers.</p>
+                    <p className='infoText'>Catalogue and submit books that you own that you would be interested in exchanging with the books of other readers.</p>
                 </div>
                 <div className='infoBox'>
                     <h1 className='infoHeader' style={hStyle}>Personal Homepage</h1>
                     <hr/>
-                    <p className='infoText'>Maintain your public profile, confirm or cancel your trades, and update your personal catalogue.</p>
+                    <p className='infoText'>Maintain your public profile, confirm or cancel your trades, update your personal catalogue, and connect with other readers.</p>
                 </div>
                 <div className="infoEmptySpace">
                 </div>
