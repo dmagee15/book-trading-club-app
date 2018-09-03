@@ -1,0 +1,41 @@
+.header{
+    min-height: 50px;
+    display: flex;
+}
+.homeButton{
+    border: none;
+    background: none;
+    font-weight: 900;
+    margin: 0 0 0 15px;
+    font-size: 17px;
+    height: 100%;
+}
+.headerInbetweenSpace{
+    flex-grow: 1;
+}
+.loginButton{
+    border: none;;
+    background: none;
+    font-weight: 900;
+    margin: 0 0 0 25px;
+    font-size: 17px;
+    height: 100%;
+}
+.signupButton{
+    border: none;
+    background: none;
+    font-weight: 900;
+    margin: 0 25px 0 25px;
+    font-size: 17px;
+    white-space: nowrap;
+    height: 100%;
+}
+.logoutButton{
+    border: none;
+    background: none;
+    font-weight: 900;
+    margin: 0 25px 0 5px;
+    font-size: 17px;
+    white-space: nowrap;
+    height: 100%;
+}

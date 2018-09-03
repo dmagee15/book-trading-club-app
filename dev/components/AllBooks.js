@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, withRouter, Route, Switch, Link, IndexRoute, Redirect} from 'react-router-dom';
 import ReactRedux, {connect, Provider} from 'react-redux';
 import Redux, {createStore, bindActionCreators} from 'redux';
+import './../css/AllBooks.css';
 
 class AllBooks extends React.Component{
     constructor(props) {
@@ -224,8 +225,8 @@ class AllBooks extends React.Component{
                 <h1 style={hStyle}>All Books</h1>
                 <div style={innerDivStyle}>
                     <hr style={hrStyle}/>
-                    <input style={searchInputStyle} type="text" value={this.state.searchInput} onChange={this.handleSearchChange}/>
-                    <button style={searchButtonStyle} onClick={this.searchAllBooks}>Search Books</button>
+                    <input className="searchInput" type="text" value={this.state.searchInput} onChange={this.handleSearchChange}/>
+                    <button className="searchButton" onClick={this.searchAllBooks}>Search Books</button>
                     {
                         this.state.searchStatus &&
                         <button style={cancelSearchStyle} onClick={this.cancelSearch}>Cancel Search</button>
@@ -273,7 +274,7 @@ class AllBookAdded extends React.Component{
             margin: "10px 25px 10px 25px",
             padding:0,
             verticalAlign: 'top',
-            boxShadow: '3px 3px 2px 2px #888888',
+            boxShadow: '0px 5px 10px rgba(0,0,0,0.15)',
             overflow: 'hidden',
             overflowX: 'hidden'
         }
@@ -305,29 +306,7 @@ class AllBookAdded extends React.Component{
             padding: 0
         }
         var requestButtonStyle = {
-            display: 'inline-block',
             backgroundColor: (this.props.book.tradeRequests.indexOf(this.props.store.user.username)==-1)?'gray':'lightgreen',
-            color: 'black',
-            height: 40,
-            padding:'0px 8px 0px 8px',
-            margin:0,
-            border: 'none',
-            margin: '15px 0 0 10px',
-            fontFamily: 'Tahoma',
-            fontSize: 18,
-            fontWeight: 900
-        };
-        var blankInfoButtonStyle = {
-            display: 'inline-block',
-            backgroundColor: 'lightblue',
-            color: 'black',
-            height: 40,
-            padding:'0px 8px 0px 8px',
-            border: 'none',
-            margin: '15px 30px 30px 5px',
-            fontFamily: 'Tahoma',
-            fontSize: 18,
-            fontWeight: 900
         };
         var infoButtonStyle = {
             display: 'inline-block',
@@ -357,7 +336,7 @@ class AllBookAdded extends React.Component{
                     <p style={subtextStyle}>Location: <span style={{color:'#5D5D5D'}}>{this.props.book.city}, {this.props.book.state}</span></p>
                 </div>
                 <div style={buttonDiv}>
-                        <button style={blankInfoButtonStyle} onClick={() => {this.props.showInfoWindow(this.props.book)}}>Book Info</button>
+                        <button className="blankInfoButton" onClick={() => {this.props.showInfoWindow(this.props.book)}}>Book Info</button>
                 </div>
             </div>
                 );
@@ -376,8 +355,8 @@ class AllBookAdded extends React.Component{
                     <p style={subtextStyle}>Location: <span style={{color:'#5D5D5D'}}>{this.props.book.city}, {this.props.book.state}</span></p>
                 </div>
                 <div style={buttonDiv}>
-                        <button style={requestButtonStyle} onClick={() => {this.props.requestBook(this.props.book._id)}}>Request</button>
-                        <button style={infoButtonStyle} onClick={() => {this.props.showInfoWindow(this.props.book)}}>Book Info</button>
+                        <button style={requestButtonStyle} className="requestButton" onClick={() => {this.props.requestBook(this.props.book._id)}}>Request</button>
+                        <button className="infoButton" onClick={() => {this.props.showInfoWindow(this.props.book)}}>Book Info</button>
                 </div>
             </div>
             );
@@ -411,6 +390,7 @@ class BookInfoBox extends React.Component{
       backgroundColor: '#fff',
       borderRadius: 5,
       width: 650,
+      maxWidth: '100%',
       height: 540,
       margin: 0,
       position: 'fixed',
@@ -424,14 +404,14 @@ class BookInfoBox extends React.Component{
     var bookCoverStyle = {
         display:'inline-block',
         height: 500,
-        width: 325,
+        width: '50%',
         margin: 0,
         overflow: 'hidden'
     };
     var contentStyle = {
         display:'inline-block',
         height:490,
-        width: 295,
+        width: '50%',
         paddingTop: 10,
         paddingLeft: 15,
         paddingRight: 15,
@@ -439,12 +419,13 @@ class BookInfoBox extends React.Component{
         overflowY: 'auto'
     };
     var imgStyle = {
-            width: 300,
+            width: '100%',
             height: 480,
             background: "url("+this.props.book.thumbnail+")",
             backgroundSize: 'cover',
             display:'inline-block',
-            margin: "10px 12px 10px 12px"
+            margin: "0px 0px 0px 0px",
+            padding: 0
         };
         var titleStyle = {
             display: 'inline-block',

@@ -108,9 +108,8 @@ class App extends React.Component{
     
    render(){
             return (
-           <div>
             <Router>
-            <div>
+                <div className="appContainer">
                 <Header store={this.props}/>
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/signup' render={(props) => (
@@ -125,9 +124,8 @@ class App extends React.Component{
                 <Route exact path='/login' render={(props) => (
                     <Login store={this.props}/>
                 )} />
-            </div>
+                </div>
             </Router>
-          </div>
           ); 
 					
    }

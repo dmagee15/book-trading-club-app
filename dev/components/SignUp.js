@@ -135,7 +135,10 @@ class SignUp extends React.Component{
 		    margin: '20px 0px 0px 0px',
 		    fontSize: 18,
 		    fontFamily: 'Arial',
-		    padding: '10px 10px 10px 10px'
+            padding: '10px 10px 10px 10px',
+            fontWeight: 900,
+            boxShadow: '0px 5px 10px rgba(0,0,0,0.15)',
+            color: 'white'
 		};
 		var divCityStyle = {
 		    width:'45%',

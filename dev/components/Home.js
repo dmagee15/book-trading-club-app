@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Link } from 'react-router-dom';
+import './../css/Home.css';
 
 class Home extends React.Component{
     constructor(props) {
@@ -9,10 +11,10 @@ class Home extends React.Component{
    render(){
 
             return (
-               <div>
+               <div className="backgroundContainer">
                     <HomeMain/>
-                    <HomeInfo/>
-                    <ProjectInfo/>
+                    <HomeContent/>
+                    <HomeFooter />
                </div>
           ); 
 					
@@ -60,17 +62,67 @@ class HomeMain extends React.Component{
 					paddingTop: 10,
 					margin: 0,
 					fontFamily: 'Lucida Console'
-					};
+                    };
+                    var pStyle = {
+                        fontFamily: 'Arial',
+                        color: '#797979'
+                    };
+                    var hStyle = {
+                        color: '#5C0700',
+                        marginBottom:0
+                    };
             return (
-               <div className='frontTitle' style={divStyle}>
-               <div className='frontContainer' style={divStyleOverlay}>
-               <div className='titleContainer'>
-                    <h1 style={titleStyle}>Book Trading Club</h1>
-                    <hr style={hrStyle}/>
-                    <p style={subtitleStyle}>Trade your used books with other readers</p>
-                </div>
-                </div>
+               <div className='frontContainer'>
+               <div className='frontLeftContainer'>
+                    <h1>Book Trading Club</h1>
+                    <hr/>
+                    <p>Trade your used books with other readers</p>
+                    <Link to="/signup"><button>Get Started</button></Link>
                </div>
+               <div className="frontRightContainer">
+               </div>
+                </div>
+                
+          ); 
+					
+   }
+      
+   
+}
+class HomeContent extends React.Component{
+    constructor(props) {
+    super(props);
+    }
+    
+   render(){
+    var pStyle = {
+        fontFamily: 'Arial',
+        color: '#797979'
+    };
+    var hStyle = {
+        color: '#5C0700',
+        marginBottom:0
+    };
+            return (
+                <div className='infoSection'>
+                <div className='infoBox'>
+                    <h1 className='infoHeader' style={hStyle}>Browse Catalogue</h1>
+                    <hr/>
+                    <p className='infoText'>Look through the catalogue to see which books our users own and see which ones you would be interested in reading.</p>
+                </div>
+                <div className='infoBox'>
+                    <h1 className='infoHeader' style={hStyle}>Exchange Books</h1>
+                    <hr/>
+                    <p className='infoText'>Post books that you own that you would be interested in exchanging with the books of other readers.</p>
+                </div>
+                <div className='infoBox'>
+                    <h1 className='infoHeader' style={hStyle}>Personal Homepage</h1>
+                    <hr/>
+                    <p className='infoText'>Maintain your public profile, confirm or cancel your trades, and update your personal catalogue.</p>
+                </div>
+                <div className="infoEmptySpace">
+                </div>
+           </div>
           ); 
 					
    }
@@ -78,49 +130,14 @@ class HomeMain extends React.Component{
    
 }
 
-class HomeInfo extends React.Component{
-    constructor(props) {
-    super(props);
+class HomeFooter extends React.Component{
+    render(){
+        return (
+            <div className="footer">
+                <p>&#169; David Magee</p>
+            </div>
+        );
     }
-    
-   render(){
-            
-            var pStyle = {
-                fontFamily: 'Arial',
-                color: '#797979'
-            };
-            var hStyle = {
-                color: '#5C0700',
-                marginBottom:0
-            };
-            var hrStyle = {
-                width: 280,
-                color: 'gray',
-                float: 'left'
-            };
-            return (
-               <div className='infoSection'>
-                    <div className='infoBox'>
-                        <h1 className='infoHeader' style={hStyle}>Browse Catalogue</h1>
-                        <hr style={hrStyle}/>
-                        <p className='infoText' style={pStyle}>Look through the catalogue to see which books our users own and see which ones you would be interested in reading.</p>
-                    </div>
-                    <div className='infoBox'>
-                        <h1 className='infoHeader' style={hStyle}>Exchange Books</h1>
-                        <hr style={hrStyle}/>
-                        <p className='infoText' style={pStyle}>Post books that you own that you would be interested in exchanging with other reader's books.</p>
-                    </div>
-                    <div className='infoBox'>
-                        <h1 className='infoHeader' style={hStyle}>Personal Homepage</h1>
-                        <hr style={hrStyle}/>
-                        <p className='infoText' style={pStyle}>Maintain your public profile, manage your trades, and update your personal catalogue.</p>
-                    </div>
-               </div>
-          ); 
-					
-   }
-      
-   
 }
 
 class ProjectInfo extends React.Component{

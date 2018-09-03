@@ -3,53 +3,58 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, withRouter, Route, Switch, Link, IndexRoute, Redirect} from 'react-router-dom';
 import ReactRedux, {connect, Provider} from 'react-redux';
 import Redux, {createStore, bindActionCreators} from 'redux';
+import './../css/Header.css';
 
 class Header extends React.Component{
     constructor(props) {
     super(props);
     }
-    
+    logout = () => {
+                fetch('/logout', {
+                method: 'GET',
+                credentials: 'include'
+                }).then(() => {
+                    this.props.store.logoutUser();
+                    this.props.history.push('/');
+                })
+            }
    render(){
-       var divStyle = {
-					padding:0,
-					width: '100%',
-					minHeight: 50,
-					backgroundColor:'#F7F7F7',
-					overflow: 'hidden'
-					};
-		var loggedStyle = {
-		    float: 'right',
-		    color: 'slateblue',
-		    display: 'inline-block',
-		    margin: '12px 40px 0px 0px',
-		    fontSize: 15,
-		    fontFamily: 'Arial'
-		};
-		var spanStyle = {
-		    fontSize: 20,
-		    color: 'darkslateblue',
-		    fontFamily: 'Bookman',
-		    fontWeight: 900
-		};
         if(this.props.store.user.authenticated==true){
             return (
-           <div id="header" style={divStyle}>
-            <HoverButton float='left' text='Home' address="/"/>
-            <LogoutButton float='right' store={this.props.store}/>
-            <HoverButton float='right' text='My Profile' address="/profile"/>
-            <HoverButton float='right' text='All Books' address="/allbooks"/>
-            <p style={loggedStyle}>Welcome, <span style={spanStyle}>{this.props.store.user.username}</span></p>
-          </div>
-          ); 
+                <div id="header" className="header">
+                    <Link to="/"><button className="homeButton">
+                        Home
+                    </button></Link>
+                    <div className="headerInbetweenSpace">
+                    </div>
+                    <Link to="/allbooks"><button className="loginButton">
+                        All Books
+                    </button></Link>
+                    <Link to="/profile"><button className="signupButton">
+                        Profile
+                    </button></Link>
+                    <a><button onClick={this.logout} className="logoutButton">
+                        Logout
+                    </button></a>
+                </div>
+              ); 
         }
         else
         {
-            return (
-           <div id="header" style={divStyle}>
-            <HoverButton float='left' text='Home' address="/"/>
-            <HoverButton float='right' text='Sign Up' address="/signup"/>
-            <HoverButton float='right' text='Login' address="login"/>
-          </div>
+          return (
+            <div id="header" className="header">
+                <Link to="/"><button className="homeButton">
+                    Home
+                </button></Link>
+                <div className="headerInbetweenSpace">
+                </div>
+                <Link to="/login"><button className="loginButton">
+                    Login
+                </button></Link>
+                <Link to="/signup"><button className="signupButton">
+                    Sign Up
+                </button></Link>
+            </div>
           ); 
         }
 					
@@ -58,90 +63,146 @@ class Header extends React.Component{
    
 }
 
-class HoverButton extends React.Component{
-    constructor(props) {
-    super(props);
-    this.state = {
-        hover: false
-        };
-    }
-    getInitialState = () => {
-        return {hover: false};
-    }
-    
-    mouseOver = () => {
-        this.setState({hover: true});
-    }
-    
-    mouseOut = () => {
-        this.setState({hover: false});
-    }
-    
-    
-    
-    render() {
-        
-        var hoverButtonStyle = {
-		    height: 50,
-		    color: 'black',
-		    float: this.props.float,
-		    background: this.state.hover?'lightblue':'none',
-            border:'none',
-            margin: '0px 20px 0px 20px'
-		};
-    
-        return(
-            <Link to={this.props.address}><button style={hoverButtonStyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>{this.props.text}</button></Link>
-        );
-    }
-}
 
-class LogoutButton extends React.Component{
-    constructor(props) {
-    super(props);
-    this.state = {
-        hover: false
-        };
-    }
-    getInitialState = () => {
-        return {hover: false};
-    }
+// class Header extends React.Component{
+//     constructor(props) {
+//     super(props);
+//     }
     
-    mouseOver = () => {
-        this.setState({hover: true});
-    }
-    
-    mouseOut = () => {
-        this.setState({hover: false});
-    }
-    logout = (history) => {
-        fetch('/logout', {
-        method: 'GET',
-        credentials: 'include'
-        }).then(() => {
-            this.props.store.logoutUser();
-            history.push('/');
-        })
-    }
-    
-    
-    render() {
-        
-        var hoverButtonStyle = {
-		    height: 50,
-		    color: 'black',
-		    float: this.props.float,
-		    background: this.state.hover?'lightblue':'none',
-            border:'none',
-            margin: '0px 20px 0px 20px'
-		};
-    
-        return(
-            <Route render={({ history}) => (
-                <button style={hoverButtonStyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} onClick={() => this.logout(history)}>Logout</button>
-            )} />
-        );
-    }
-}
+//    render(){
+//        var divStyle = {
+// 					padding:0,
+// 					width: '100%',
+// 					minHeight: 50,
+// 					backgroundColor:'#F7F7F7',
+// 					overflow: 'hidden'
+// 					};
+// 		var loggedStyle = {
+// 		    float: 'right',
+// 		    color: 'slateblue',
+// 		    display: 'inline-block',
+// 		    margin: '12px 40px 0px 0px',
+// 		    fontSize: 15,
+// 		    fontFamily: 'Arial'
+// 		};
+// 		var spanStyle = {
+// 		    fontSize: 20,
+// 		    color: 'darkslateblue',
+// 		    fontFamily: 'Bookman',
+// 		    fontWeight: 900
+// 		};
+//         if(this.props.store.user.authenticated==true){
+//             return (
+//            <div id="header" style={divStyle}>
+//             <HoverButton float='left' text='Home' address="/"/>
+//             <LogoutButton float='right' store={this.props.store}/>
+//             <HoverButton float='right' text='My Profile' address="/profile"/>
+//             <HoverButton float='right' text='All Books' address="/allbooks"/>
+//             <p style={loggedStyle}>Welcome, <span style={spanStyle}>{this.props.store.user.username}</span></p>
+//           </div>
+//           ); 
+//         }
+//         else
+//         {
+//             return (
+//            <div id="header" style={divStyle}>
+//             <HoverButton float='left' text='Home' address="/"/>
+//             <HoverButton float='right' text='Sign Up' address="/signup"/>
+//             <HoverButton float='right' text='Login' address="login"/>
+//           </div>
+//           ); 
+//         }
+					
+//    }
+      
+   
+// }
 
-export default Header
+// class HoverButton extends React.Component{
+//     constructor(props) {
+//     super(props);
+//     this.state = {
+//         hover: false
+//         };
+//     }
+//     getInitialState = () => {
+//         return {hover: false};
+//     }
+    
+//     mouseOver = () => {
+//         this.setState({hover: true});
+//     }
+    
+//     mouseOut = () => {
+//         this.setState({hover: false});
+//     }
+    
+    
+    
+//     render() {
+        
+//         var hoverButtonStyle = {
+// 		    height: 50,
+// 		    color: 'black',
+// 		    float: this.props.float,
+// 		    background: this.state.hover?'lightblue':'none',
+//             border:'none',
+//             margin: '0px 20px 0px 20px'
+// 		};
+    
+//         return(
+//             <Link to={this.props.address}><button style={hoverButtonStyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>{this.props.text}</button></Link>
+//         );
+//     }
+// }
+
+// class LogoutButton extends React.Component{
+//     constructor(props) {
+//     super(props);
+//     this.state = {
+//         hover: false
+//         };
+//     }
+//     getInitialState = () => {
+//         return {hover: false};
+//     }
+    
+//     mouseOver = () => {
+//         this.setState({hover: true});
+//     }
+    
+//     mouseOut = () => {
+//         this.setState({hover: false});
+//     }
+//     logout = (history) => {
+//         fetch('/logout', {
+//         method: 'GET',
+//         credentials: 'include'
+//         }).then(() => {
+//             this.props.store.logoutUser();
+//             history.push('/');
+//         })
+//     }
+    
+    
+//     render() {
+        
+//         var hoverButtonStyle = {
+// 		    height: 50,
+// 		    color: 'black',
+// 		    float: this.props.float,
+// 		    background: this.state.hover?'lightblue':'none',
+//             border:'none',
+//             margin: '0px 20px 0px 20px'
+// 		};
+    
+//         return(
+//             <Route render={({ history}) => (
+//                 <button style={hoverButtonStyle} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut} onClick={() => this.logout(history)}>Logout</button>
+//             )} />
+//         );
+//     }
+// }
+
+
+export default withRouter(Header);

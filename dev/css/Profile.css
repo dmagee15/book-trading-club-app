@@ -1,0 +1,45 @@
+.infoButton{
+    display: inline-block;
+    background-color: lightblue;
+    color: white;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    height: 40px;
+    padding:0px 8px 0px 8px;
+    margin:0;
+    border: none;
+    margin: 15px 0 0 5px;
+    font-family: Tahoma;
+    font-size: 18px;
+    font-weight: 900;
+    border-radius: 5px;
+}
+.removeButton{
+    display: inline-block;
+    background-color: black;
+    color: white;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    height: 40px;
+    padding:0px 8px 0px 8px;
+    margin:0;
+    border: none;
+    margin: 15px 0 0 10px;
+    font-family: Tahoma;
+    font-size: 18px;
+    font-weight: 900;
+    border-radius: 5px;
+}
+.removeTradeButton{
+    display: inline-block;
+    background-color: black;
+    color: white;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    height: 40px;
+    padding:0px 8px 0px 8px;
+    margin:0;
+    border: none;
+    margin: 15px 30px 30px 5px;
+    font-family: Tahoma;
+    font-size: 18px;
+    font-weight: 900;
+    border-radius: 5px;
+}

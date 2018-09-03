@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, withRouter, Route, Switch, Link, IndexRoute, Redirect} from 'react-router-dom';
 import ReactRedux, {connect, Provider} from 'react-redux';
 import Redux, {createStore, bindActionCreators} from 'redux';
+import './../css/Profile.css';
 
 class Profile extends React.Component{
     constructor(props) {
@@ -164,20 +165,22 @@ class Profile extends React.Component{
 		var searchInputStyle = {
 		    padding:0,
 			width: 250,
-			height:25,
+			height:35,
 			display: 'inline-block',
 			margin: "15px 0px 0px 0px"
 		};
 		var searchButtonStyle = {
 		    background: 'lightblue',
-		    height: 25,
 		    border:'none',
-		    boxShadow:'none',
+		    boxShadow:'0px 5px 10px rgba(0,0,0,0.15)',
 		    fontSize: 18,
 		    fontFamily: 'Arial',
-		    borderRadius: 2,
+		    borderRadius: 5,
 		    display: 'inline-block',
-		    margin: "15px 0px 0px 10px"
+            margin: "15px 0px 0px 10px",
+            padding: '10px 15px 10px 15px',
+            fontWeight: 900,
+            color: 'white'
 		}
 		var myBooksStyle = {
 		    width: '100%',
@@ -203,7 +206,8 @@ class Profile extends React.Component{
             margin: '15px 0 0 10px',
             fontFamily: 'Tahoma',
             fontSize: 16,
-            fontWeight: 900
+            fontWeight: 900,
+            boxShadow: '0px 5px 10px rgba(0,0,0,0.15)'
 		};
 		var requestsForYouStyle = {
 		    display: 'inline-block',
@@ -217,7 +221,8 @@ class Profile extends React.Component{
             margin: '15px 0 0 10px',
             fontFamily: 'Tahoma',
             fontSize: 16,
-            fontWeight: 900
+            fontWeight: 900,
+            boxShadow: '0px 5px 10px rgba(0,0,0,0.15)'
 		};
 
         return (
@@ -344,8 +349,8 @@ class BookAdded extends React.Component{
                     <p style={subtextStyle}>Year: <span style={{color:'#5D5D5D'}}>{this.props.book.publishedDate}</span></p>
                 </div>
                 <div style={buttonDiv}>
-                    <button style={removeButtonStyle} onClick={() => {this.props.removeBook(this.props.book._id)}}>Remove</button>
-                    <button style={infoButtonStyle} onClick={() => {this.props.showInfoWindow(this.props.book)}}>Book Info</button>
+                    <button className="removeButton" onClick={() => {this.props.removeBook(this.props.book._id)}}>Remove</button>
+                    <button className="infoButton" onClick={() => {this.props.showInfoWindow(this.props.book)}}>Book Info</button>
                 </div>
             </div>
             );
@@ -499,7 +504,7 @@ class TradeRequestBook extends React.Component{
                 )}
                 <div style={buttonDiv}>
                 {(this.props.store.user.username!=this.props.book.tradeConfirmUser) &&
-                <button style={removeButtonStyle} onClick={() => {this.props.removeRequest(this.props.book._id)}}>Remove</button>
+                <button className="removeTradeButton" onClick={() => {this.props.removeRequest(this.props.book._id)}}>Remove</button>
                 }
                 </div>
             </div>
@@ -533,6 +538,7 @@ class BookInfoBox extends React.Component{
       backgroundColor: '#fff',
       borderRadius: 5,
       width: 650,
+      maxWidth: '100%',
       height: 540,
       margin: 0,
       position: 'fixed',
@@ -546,27 +552,28 @@ class BookInfoBox extends React.Component{
     var bookCoverStyle = {
         display:'inline-block',
         height: 500,
-        width: 325,
+        width: '50%',
         margin: 0,
         overflow: 'hidden'
     };
     var contentStyle = {
         display:'inline-block',
         height:490,
-        width: 295,
+        width: '50%',
         paddingTop: 10,
-        paddingLeft: 15,
+        paddingLeft: 5,
         paddingRight: 15,
         margin: 0,
         overflowY: 'auto'
     };
     var imgStyle = {
-            width: 300,
+            width: '100%',
             height: 480,
             background: "url("+this.props.book.thumbnail+")",
             backgroundSize: 'cover',
             display:'inline-block',
-            margin: "10px 12px 10px 12px"
+            margin: "0px 0px 0px 0px",
+            padding: 0
         };
         var titleStyle = {
             display: 'inline-block',
@@ -923,12 +930,14 @@ class RequestForYouBook extends React.Component{
             margin: '15px 5px 30px 15px',
             fontFamily: 'Tahoma',
             fontSize: 18,
-            fontWeight: 900
+            fontWeight: 900,
+            boxShadow: '0px 5px 10px rgba(0,0,0,0.15)',
+            borderRadius: '5px'
         };
         var approveButtonStyle = {
             display: 'inline-block',
             backgroundColor: 'lightgreen',
-            color: 'black',
+            color: 'white',
             height: 40,
             padding:'0px 8px 0px 8px',
             margin:0,
@@ -936,12 +945,14 @@ class RequestForYouBook extends React.Component{
             margin: '15px 0 0 5px',
             fontFamily: 'Tahoma',
             fontSize: 18,
-            fontWeight: 900
+            fontWeight: 900,
+            boxShadow: '0px 5px 10px rgba(0,0,0,0.15)',
+            borderRadius: '5px'
         };
         var unapproveButtonStyle = {
             display: 'inline-block',
             backgroundColor: '#FF5100',
-            color: 'black',
+            color: 'white',
             height: 40,
             padding:'0px 5px 0px 5px',
             margin:0,
@@ -950,7 +961,9 @@ class RequestForYouBook extends React.Component{
             fontFamily: 'Tahoma',
             fontSize: 16,
             fontWeight: 900,
-            float: 'right'
+            float: 'right',
+            boxShadow: '0px 5px 10px rgba(0,0,0,0.15)',
+            borderRadius: '5px'
         };
         
         
